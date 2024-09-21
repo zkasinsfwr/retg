@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Telegram Web App</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // Получаем объект Telegram.WebApp или создаем заглушку для тестирования
+        const Telegram = window.Telegram || { WebApp: { userLanguage: 'ru' } }; // Замените 'ru' на нужный язык для тестирования
+
+        // Проверяем, доступен ли объект WebApp
+        if (Telegram && Telegram.WebApp) {
+
+            const userLang = Telegram.WebApp.userLanguage || 'en';
+            let page = 'indexeng.html';
+
+            if (userLang.startsWith('ru')) {
+                page = 'indexru.html';
+            }
+
+            window.location.href = page;
+        } else {
+            alert('not possible');
+        }
+    </script>
+</body>
+</html>
